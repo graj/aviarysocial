@@ -399,6 +399,9 @@
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
+    UIImage *img = self.imagePreviewView.image;
+    NSData *imageData = UIImagePNGRepresentation(img);
+    [mc addAttachmentData:imageData mimeType:@"image/png" fileName:@"attachment"];
     
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
